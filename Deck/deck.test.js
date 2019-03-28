@@ -3,14 +3,14 @@ const Deck = require('./deck');
 describe('Deck Class', ()=> {
 
   const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-  const mockCards = [1, 2, 3, 4, 5]
+  const mockCards = ['a', 'b', 'c', 'd']
   let mockDeck 
 
   beforeEach(()=> {
     mockDeck = new Deck(cards);
   })
 
-  describe('deck Instance', ()=> {
+  describe('deck instance', ()=> {
 
     it('should throw an error on empty cards', ()=> {
       expect(()=> {
@@ -28,7 +28,7 @@ describe('Deck Class', ()=> {
   
   })
   
-  describe('deal functionality', ()=> {
+  describe('deal function', ()=> {
 
     it('should throw error if dealing from an empty deck', ()=> {
       mockDeck.deck = undefined;
@@ -51,7 +51,7 @@ describe('Deck Class', ()=> {
     })
   })
 
-  describe('discard functionality', ()=> {
+  describe('discard function', ()=> {
 
     it('should throw error on passing in empty arr', ()=> {
       let emptyCards = [];
@@ -63,6 +63,31 @@ describe('Deck Class', ()=> {
     it('should discard cards', ()=> {
       mockDeck.discard(mockCards);
       expect(mockDeck.discardPile.length).toEqual(mockCards.length);
+    })
+  })
+
+  describe('shuffle function', ()=> {
+    it('should throw error on passing no array', ()=> {
+      expect(()=> {
+        mockDeck._shuffle();
+      }).toThrow(Error);
+    })
+
+    it('should throw error when no cards in discard pile', ()=> {
+      expect(()=> {
+        mockDeck._shuffle([])
+      }).toThrow(Error);
+    })
+
+    it('should return a new shuffled array', ()=> {
+      let shuffledCards = mockDeck._shuffle(mockCards);
+      expect(shuffledCards).not.toEqual(mockCards)
+    })
+
+    it('append shuffled discard pile to deck', ()=> {
+      mockDeck.discardPile = mockCards
+      mockDeck._shuffleDiscardPile();
+      expect(mockDeck.deck).toEqual(expect.arrayContaining([...mockDeck.deck, ...mockCards]))
     })
   })
 })

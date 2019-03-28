@@ -42,8 +42,8 @@ class Deck {
   }
 
   _shuffle(arr){
-    if(arr == undefined){
-      throw new Error('Must pass in cards to constructor')
+    if(arr == undefined || arr.length == 0){
+      throw new Error('Must pass in cards to shuffle')
     }
     const shuffledArr = [...arr]
     // Knuth shuffle algorithm
