@@ -11,7 +11,7 @@ class Deck {
       throw new Error('Deck is empty; Make sure to pass cards to Deck constructor')
     }
     // shuffle in discard pile when deck is 10 cards 
-    if(this.deck < 10){
+    if(this.deck.length < 10){
       this._shuffleDiscardPile();
     }
     const cards = []
@@ -26,7 +26,7 @@ class Deck {
   discard(cards){
     // check if cards is empty
     if(cards.length == 0){
-      throw new Error("Discard pile is empty; No cards to discard");
+      throw new Error("Must pass in cards; No cards to discard");
     }
     // set discard pile to be the old and recently discarded pile
     this.discardPile = [...this.discardPile, ...cards]
@@ -38,18 +38,22 @@ class Deck {
     const shuffledCards = this._shuffle(this.discardPile);
     // set deck to be the shuffled cards appended to original deck
     this.deck = [...this.deck, ...shuffledCards]
-    console.log("cards shuffled", this.deck);
+    console.log(this.deck.length, "cards shuffled", this.deck);
   }
 
   _shuffle(arr){
-    // Knuth shuffle algorithm
-    for(let i=arr.length -1; i>0; i--){
-      let index = Math.floor(Math.random() * i);
-      let temp = arr[index];
-      arr[index] = arr[i];
-      arr[i] = temp; 
+    if(arr == undefined){
+      throw new Error('Must pass in cards to constructor')
     }
-    return arr; 
+    const shuffledArr = [...arr]
+    // Knuth shuffle algorithm
+    for(let i=shuffledArr.length -1; i>0; i--){
+      let index = Math.floor(Math.random() * i);
+      let temp = shuffledArr[index];
+      shuffledArr[index] = shuffledArr[i];
+      shuffledArr[i] = temp; 
+    }
+    return shuffledArr; 
   }
 }
 
