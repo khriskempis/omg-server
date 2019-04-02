@@ -47,7 +47,7 @@ describe('Deck Class', ()=> {
       mockDeck.deck = [...mockCards];
       mockDeck.discardPile = [...mockCards]
       mockDeck.deal(2);
-      expect(mockDeck.deck).toEqual(expect.arrayContaining(mockCards))
+      expect(mockDeck._deck).toEqual(expect.arrayContaining(mockCards))
     })
   })
 

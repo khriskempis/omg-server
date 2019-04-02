@@ -1,43 +1,43 @@
 const card_index = [
   {
     id: 1,
-    name: "Charburner",
-    g_name: "Kohlerei",
-    price: null,
-    vp: null,
+    name: "Brick Manufacture",
+    g_name: "Ziegelei",
+    price: 2,
+    vp: 2,
     sun: false,
-    type: null,
-    resource: null,
+    type: "C",
+    resource: "C",
     resources_req: {
-      h: 2,
-      c: null,
-      l: 1,
-      s: null,
+      h: null,
+      c: 1,
+      l: null,
+      s: 3,
       w: null
     },
-    produce: "Coal",
-    value: 1,
-    chain: ["Lumber"]
+    produce: "Brick",
+    value: 2,
+    chain: ["Clay", "Coal"]
   },
   {
     id: 2,
-    name: "Charburner",
-    g_name: "Kohlerei",
-    price: null,
-    vp: null,
-    sun: false,
-    type: null,
-    resource: null,
+    name: "Shoemaker",
+    g_name: "Schusterwerkstatt",
+    price: 12,
+    vp: 4,
+    sun: true,
+    type: "H",
+    resource: "H",
     resources_req: {
-      h: null,
-      l: 1,
+      h: 4,
+      l: null,
       c: 2,
       s: null,
       w: null
     },
-    produce: "Coal",
-    value: 1,
-    chain: ["Lumber"]
+    produce: "Shoes",
+    value: 8,
+    chain: ["Leather"]
   },
   {
     id: 3,
@@ -58,6 +58,46 @@ const card_index = [
     produce: "Plank",
     value: 2,
     chain: ["Lumber"]
+  },
+  {
+    id: 4,
+    name: "Bakery",
+    g_name: "Backerei",
+    price: 9,
+    vp: 3,
+    sun: true,
+    type: "H",
+    resource: "H",
+    resources_req: {
+      h: null,
+      c: 3,
+      l: null,
+      s: 2,
+      w: null
+    },
+    produce: "Bread",
+    value: 4,
+    chain: ["Coal", "Grain"]
+  },
+  {
+    id: 5,
+    name: "Cattle Ranch",
+    g_name: "Rinderfarm",
+    price: 6,
+    vp: 2,
+    sun: false,
+    type: "C",
+    resource: "C",
+    resources_req: {
+      h: 2,
+      c: null,
+      l: null,
+      s: null,
+      w: 2
+    },
+    produce: "Cattle",
+    value: 3,
+    chain: ["Hay"]
   },
   {
     id: 6,
@@ -118,6 +158,106 @@ const card_index = [
     produce: "Cloth",
     value: 3,
     chain: ["Wool"]
+  },
+  {
+    id: 9,
+    name: "Weaving Mill",
+    g_name: "Weberi",
+    price: 5,
+    vp: 2,
+    sun: false,
+    type: "W",
+    resource: "W",
+    resources_req: {
+      h: null,
+      c: 1,
+      l: null,
+      s: null,
+      w: 3
+    },
+    produce: "Cloth",
+    value: 3,
+    chain: ["Wool"]
+  },
+  {
+    id: 10,
+    name: "Tailor's Shop",
+    g_name: "Naherei",
+    price: 7,
+    vp: 3,
+    sun: true,
+    type: "W",
+    resource: "W",
+    resources_req: {
+      h: null,
+      c: 3,
+      l: null,
+      s: 2,
+      w: null
+    },
+    produce: "Shirt",
+    value: 4,
+    chain: ["Coal", "Cloth"]
+  },
+  {
+    id: 11,
+    name: "Tannery",
+    g_name: "Gerberei",
+    price: 15,
+    vp: 3,
+    sun: false,
+    type: "C",
+    resource: "C",
+    resources_req: {
+      h: null,
+      c: null,
+      l: 3,
+      s: null,
+      w: 2
+    },
+    produce: "Leather",
+    value: 6,
+    chain: ["Cattle"]
+  },
+  {
+    id: 12,
+    name: "Food Factory",
+    g_name: "Nahrungsfabrik",
+    price: 21,
+    vp: 5,
+    sun: false,
+    type: "H",
+    resource: "H",
+    resources_req: {
+      h: null,
+      c: 2,
+      l: 4,
+      s: null,
+      w: null
+    },
+    produce: "Food",
+    value: 8,
+    chain: ["Bread"]
+  },
+  {
+    id: 13,
+    name: "Mill",
+    g_name: "Muhle",
+    price: 2,
+    vp: 2,
+    sun: false,
+    type: "H",
+    resource: "H",
+    resources_req: {
+      h: 3,
+      c: null,
+      l: null,
+      s: null,
+      w: 1
+    },
+    produce: "Grain",
+    value: 2,
+    chain: ["Hay"]
   },
 ]
 

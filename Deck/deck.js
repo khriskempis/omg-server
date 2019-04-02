@@ -5,13 +5,17 @@ class Deck {
     this.discardPile = [];
   }
 
+  get _deck(){
+    return this.deck;
+  }
+
   deal(num){
     // make sure deck is init with card ids
     if(this.deck == undefined){
       throw new Error('Deck is empty; Make sure to pass cards to Deck constructor')
     }
     // shuffle in discard pile when deck is 10 cards 
-    if(this.deck.length < 10){
+    if(this.deck.length < 5){
       this._shuffleDiscardPile();
     }
     const cards = []
@@ -43,7 +47,7 @@ class Deck {
 
   _shuffle(arr){
     if(arr == undefined || arr.length == 0){
-      throw new Error('Must pass in cards to shuffle')
+      throw new Error('Empty Deck; Must pass in cards to shuffle')
     }
     const shuffledArr = [...arr]
     // Knuth shuffle algorithm
