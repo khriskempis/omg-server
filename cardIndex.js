@@ -225,7 +225,7 @@ const card_index = [
     g_name: "Nahrungsfabrik",
     price: 21,
     vp: 5,
-    sun: false,
+    sun: true,
     type: "H",
     resource: "H",
     resources_req: {
@@ -245,7 +245,7 @@ const card_index = [
     g_name: "Muhle",
     price: 2,
     vp: 2,
-    sun: false,
+    sun: true,
     type: "H",
     resource: "H",
     resources_req: {

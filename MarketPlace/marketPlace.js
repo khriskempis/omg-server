@@ -15,7 +15,10 @@ class MarketPlace {
       let cardId = deck.deal(1);
       let card = hashmap.get(cardId[0]);
 
-      this.dayMarket.push(card.resource);
+      this.dayMarket.push({
+        id: card.id,
+        resource: card.resource
+      });
 
       if(card.sun){
         suns++
@@ -34,7 +37,9 @@ class MarketPlace {
       let cardId = deck.deal(1);
       let card = hashmap.get(cardId[0]);
 
-      this.nightMarket.push(card.resource);
+      this.nightMarket.push({
+        id: card.id,
+        resource: card.resource});
 
       if(card.sun){
         suns++
@@ -44,7 +49,9 @@ class MarketPlace {
     return this.nightMarket;
   }
 
-  resetMarketPlace(){
+  resetMarketPlace(deck){
+    deck.discard(this.dayMarket.map(card => card.id));
+    deck.discard(this.nightMarket.map(card => card.id));
     this.dayMarket = [];
     this.nightMarket = [];
     console.log('MarketPlace reset');

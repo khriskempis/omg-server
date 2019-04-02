@@ -48,6 +48,7 @@ const myMarketPlace = new MarketPlace();
 // console.log(cardHashMap.get(1))
 myMarketPlace.dayPhase(myDeck, cardHashMap);
 myMarketPlace.nightPhase(myDeck, cardHashMap);
+myMarketPlace.resetMarketPlace(myDeck);
 
 
 

@@ -66,7 +66,7 @@ describe('MarketPlace', ()=> {
     it('should reset dayMarket and nightMarket', ()=> {
       mockMarketPlace.dayPhase(mockDeck, cardHashMap);
       mockMarketPlace.nightPhase(mockDeck, cardHashMap);
-      mockMarketPlace.resetMarketPlace();
+      mockMarketPlace.resetMarketPlace(mockDeck);
       expect(mockMarketPlace.dayMarket).toEqual([]);
       expect(mockMarketPlace.nightMarket).toEqual([]);
     })
