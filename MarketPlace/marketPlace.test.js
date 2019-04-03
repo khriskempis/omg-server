@@ -25,9 +25,9 @@ describe('MarketPlace', ()=> {
   let mockMarketPlace
 
   beforeEach(()=> {
-    mockDeck = new Deck(cards)
+    mockDeck = new Deck(cards, cardHashMap)
     mockDeck.discardPile = [11, 12, 13, 14, 15]
-    mockMarketPlace = new MarketPlace();
+    mockMarketPlace = new MarketPlace(cardHashMap, mockDeck);
   })
 
   describe('marketPlace instance', ()=> {
@@ -36,27 +36,29 @@ describe('MarketPlace', ()=> {
     })
   })
 
-  describe('dayphase function', ()=> {
+  describe('sunrise function', ()=> {
     it('should throw error on undefined Deck or Hashmap', ()=> {
+      mockMarketPlace.deck = undefined;
       expect(()=> {
-        mockMarketPlace.dayPhase()
+        mockMarketPlace.sunrise()
       }).toThrow(Error);
     })
 
     it('should return array of resources', ()=> {
-      mockMarketPlace.dayPhase(mockDeck, cardHashMap);
+      mockMarketPlace.sunrise(mockDeck, cardHashMap);
       expect(mockMarketPlace.dayMarket.length).toBeGreaterThanOrEqual(2);
     })
   })
 
-  describe('nightphase function', ()=> {
+  describe('sunset function', ()=> {
     it('should throw error on undefined Deck or Hashmap', ()=> {
+      mockMarketPlace.deck = undefined;
       expect(()=> {
-        mockMarketPlace.nightPhase()
+        mockMarketPlace.sunset()
       }).toThrow(Error);
     })
     it('should return array of resources', ()=> {
-      mockMarketPlace.nightPhase(mockDeck, cardHashMap);
+      mockMarketPlace.sunset(mockDeck, cardHashMap);
       expect(mockMarketPlace.nightMarket.length).toBeGreaterThanOrEqual(2);
     })
   })
@@ -64,8 +66,8 @@ describe('MarketPlace', ()=> {
   describe('reset function', ()=> {
 
     it('should reset dayMarket and nightMarket', ()=> {
-      mockMarketPlace.dayPhase(mockDeck, cardHashMap);
-      mockMarketPlace.nightPhase(mockDeck, cardHashMap);
+      mockMarketPlace.sunrise(mockDeck, cardHashMap);
+      mockMarketPlace.sunset(mockDeck, cardHashMap);
       mockMarketPlace.resetMarketPlace(mockDeck);
       expect(mockMarketPlace.dayMarket).toEqual([]);
       expect(mockMarketPlace.nightMarket).toEqual([]);

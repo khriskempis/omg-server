@@ -32,8 +32,8 @@ class Deck {
       const card = this._readCard()
       console.log('card dealt', card);
       return card
-      
-    } else {
+    } 
+    else {
       const cards = []
       for(let i=0; i<num; i++){
         // deal out from beginning of deck 
