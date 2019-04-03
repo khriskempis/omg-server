@@ -1,51 +1,30 @@
 class Town {
-  constructor(){
-    this.buildings = [
-      {
-        id: "A",
-        image: "image",
-        name: 'Charburner',
-        g_name: "Kohlerei",
-        required_resource: {
-          s: 2,
-          l: 1
-        },
-        produce: "Coal",
-        value: 1,
-        chain: ["Lumber"],
-        worker: false
-      },
-      {
-        id: "B",
-        image: "image",
-        name: 'Charburner',
-        g_name: "Kohlerei",
-        required_resource: {
-          s: 2,
-          l: 1
-        },
-        produce: "Coal",
-        value: 1,
-        chain: ["Lumber"],
-        worker: false
-      }
-
-    ]
+  constructor(cardMap, charburner){
+    this.buildings = [charburner]
+    this.cardMap = cardMap
   }
  
 get myBuildings(){
   return this.buildings;
 }
 
+_readCard(id){
+  let card = this.cardMap.get(id.toString());
+  return card; 
+}
+
 _findBuilding(id){
-  return this.buildings.find(building =>  building.id == id);
+  const building = this.buildings.find(building => building.id == id);
+  if(building === undefined){
+    throw new Error("You haven't built that building; building is not in town")
+  }
+  return building
 }
 
 // add buildings
+build(building){
 
-build(building, deck, cardIndex){
-
-  const card = this._readCard(deck, cardIndex);
+  const card = this._readCard(building.id);
 
   const newBuilding = {
     id: card.id,
@@ -57,16 +36,57 @@ build(building, deck, cardIndex){
     produce: card.produce,
     value: card.value,
     chain: card.chain,
-    worker: false
+    // new properties
+    hasWorker: {
+      placed: false,
+      efficient: false,
+      assitant: false
+    },
+    produce: 0
   }
 
   this.buildings.push(newBuilding);
-  console.log("added ", newBuilding);
+  console.log("added ", newBuilding.name);
 }
 
+
+
 // place worker
+placeWorker(worker, building){
+  const myBuilding = this._findBuilding(building.id);
+
+  if(myBuilding.hasWorker){
+    throw new Error('Cannot place worker; building already has a worker on it')
+  }
+  else if(myBuilding.hasWorker.assitant){
+    throw new Error('Cannot place worker; building already has an assitant')
+  }
+  else {
+    myBuilding.hasWorker.placed = true;
+
+    if(worker.efficient){
+      myBuilding.hasWorker.efficient = true;
+    }
+    else if(worker.isAssistant){
+      myBuilding.hasWorker.isAssitant = true;
+    }
+  }
+}
+//move assistant
+moveAssitant(building){
+
+}
 
 // produce building
+
+// chain resource
+
+
+}
+
+const worker = {
+  efficient: true,
+  isAssitant: false,
 
 }
 
