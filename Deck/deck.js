@@ -1,12 +1,21 @@
+
 class Deck {
-  constructor(cards){
+  constructor(cards, cardMap){
     // init with shuffled deck;
     this.deck = this._shuffle(cards);
     this.discardPile = [];
+    this.cardMap = cardMap;
   }
 
   get _deck(){
     return this.deck;
+  }
+
+  _readCard(){
+    // grabs first card and returns data
+    const cardId = this.deck.shift();
+    const card = this.cardMap.get(cardId.toString())
+    return card
   }
 
   deal(num){
@@ -14,17 +23,27 @@ class Deck {
     if(this.deck == undefined){
       throw new Error('Deck is empty; Make sure to pass cards to Deck constructor')
     }
-    // shuffle in discard pile when deck is 10 cards 
+    // shuffle in discard pile when deck is 5 cards 
     if(this.deck.length < 5){
       this._shuffleDiscardPile();
     }
-    const cards = []
-    for(let i=0; i<num; i++){
-      // deal out from beginning of deck 
-      cards.push(this.deck.shift())
+
+    if(num == 1){
+      const card = this._readCard()
+      console.log('card dealt', card);
+      return card
+      
+    } else {
+      const cards = []
+      for(let i=0; i<num; i++){
+        // deal out from beginning of deck 
+        const card = this._readCard();
+        cards.push(card)
+      }
+      console.log(cards.length, "cards dealt");
+      return cards
     }
-    console.log("cards dealt", cards);
-    return cards;
+    
   }
 
   discard(cards){

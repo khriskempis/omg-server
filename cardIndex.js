@@ -8,7 +8,7 @@ const card_index = [
     sun: false,
     type: "C",
     resource: "C",
-    resources_req: {
+    required_resource: {
       h: null,
       c: 1,
       l: null,
@@ -28,7 +28,7 @@ const card_index = [
     sun: true,
     type: "H",
     resource: "H",
-    resources_req: {
+    required_resource: {
       h: 4,
       l: null,
       c: 2,
@@ -48,7 +48,7 @@ const card_index = [
     sun: true,
     type: "L",
     resource: "L",
-    resources_req: {
+    required_resource: {
       h: null,
       c: 2,
       l: null,
@@ -68,7 +68,7 @@ const card_index = [
     sun: true,
     type: "H",
     resource: "H",
-    resources_req: {
+    required_resource: {
       h: null,
       c: 3,
       l: null,
@@ -88,7 +88,7 @@ const card_index = [
     sun: false,
     type: "C",
     resource: "C",
-    resources_req: {
+    required_resource: {
       h: 2,
       c: null,
       l: null,
@@ -108,7 +108,7 @@ const card_index = [
     sun: true,
     type: "W",
     resource: "W",
-    resources_req: {
+    required_resource: {
       h: null,
       c: 3,
       l: 3,
@@ -128,7 +128,7 @@ const card_index = [
     sun: true,
     type: "W",
     resource: "W",
-    resources_req: {
+    required_resource: {
       h: null,
       c: null,
       l: 2,
@@ -148,7 +148,7 @@ const card_index = [
     sun: true,
     type: "H",
     resource: "H",
-    resources_req: {
+    required_resource: {
       h: 2,
       c: null,
       l: null,
@@ -168,7 +168,7 @@ const card_index = [
     sun: false,
     type: "W",
     resource: "W",
-    resources_req: {
+    required_resource: {
       h: null,
       c: 1,
       l: null,
@@ -188,7 +188,7 @@ const card_index = [
     sun: true,
     type: "W",
     resource: "W",
-    resources_req: {
+    required_resource: {
       h: null,
       c: 3,
       l: null,
@@ -208,7 +208,7 @@ const card_index = [
     sun: false,
     type: "C",
     resource: "C",
-    resources_req: {
+    required_resource: {
       h: null,
       c: null,
       l: 3,
@@ -228,7 +228,7 @@ const card_index = [
     sun: true,
     type: "H",
     resource: "H",
-    resources_req: {
+    required_resource: {
       h: null,
       c: 2,
       l: 4,
@@ -248,7 +248,7 @@ const card_index = [
     sun: true,
     type: "H",
     resource: "H",
-    resources_req: {
+    required_resource: {
       h: 3,
       c: null,
       l: null,

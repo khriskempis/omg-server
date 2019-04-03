@@ -3,6 +3,7 @@ const CardMap = require('./hashMap');
 
 const Deck = require('./Deck/deck');
 const MarketPlace = require('./MarketPlace/marketPlace');
+const Town = require('./Town/town');
 
 // local Hash map of cards
 const cardHashMap = new CardMap;
@@ -17,9 +18,9 @@ cardIndex.forEach(card => {
 let cardIds = cardIndex.map(card => card.id)
 
 // creating a new deck with Card Ids
-const myDeck = new Deck(cardIds);
+const myDeck = new Deck(cardIds, cardHashMap);
 
-console.log(myDeck._deck);
+// console.log(myDeck.deal(5));
 
 
 // testing deal function 
@@ -42,13 +43,21 @@ console.log(myDeck._deck);
 
 
 
-
+// Marketplace testing
 const myMarketPlace = new MarketPlace();
 
 // console.log(cardHashMap.get(1))
-myMarketPlace.dayPhase(myDeck, cardHashMap);
-myMarketPlace.nightPhase(myDeck, cardHashMap);
-myMarketPlace.resetMarketPlace(myDeck);
+// myMarketPlace.dayPhase(myDeck, cardHashMap);
+// myMarketPlace.nightPhase(myDeck, cardHashMap);
+// myMarketPlace.resetMarketPlace(myDeck);
+
+
+// Town testing
+
+const myTown = new Town();
+
+// console.log(myTown.build();
+
 
 
 
