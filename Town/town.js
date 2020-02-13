@@ -31,7 +31,7 @@ build(building){
     image: "image",
     type: card.type,
     name: card.name,
-    g_name: card.name,
+    g_name: card.g_name,
     required_resource: card.required_resource,
     produce: card.produce,
     value: card.value,
@@ -42,7 +42,7 @@ build(building){
       efficient: false,
       assitant: false
     },
-    produce: 0
+    building_produce: 0
   }
 
   this.buildings.push(newBuilding);
@@ -81,13 +81,14 @@ moveAssitant(building){
 
 // chain resource
 
+// reset-- remove worker from building
+
 
 }
 
 const worker = {
   efficient: true,
   isAssitant: false,
-
 }
 
 module.exports = Town
