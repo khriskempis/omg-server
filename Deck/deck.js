@@ -46,7 +46,7 @@ class Deck {
   }
 
   discard(cards) {
-    // check if cards is empty
+    // check if cards is empty                              
     if (cards.length == 0) {
       throw new Error("Must pass in cards; No cards to discard");
     }
