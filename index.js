@@ -1,9 +1,9 @@
 const cardIndex = require("./cardIndex");
-const HashMap = require("./hashMap");
+const HashMap = require("./GameObjects/hashMap");
 
-const Deck = require("./Deck/deck");
-const MarketPlace = require("./MarketPlace/marketPlace");
-const Town = require("./Town/town");
+const Deck = require("./GameObjects/deck");
+const MarketPlace = require("./GameObjects/marketPlace");
+const Town = require("./GameObjects/town");
 
 // local Hash map of cards
 const cardHashMap = new HashMap();

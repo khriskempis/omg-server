@@ -4,12 +4,14 @@
   "description": "Oh My Goods",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "jest": "^24.5.0"
+    "jest": "^24.5.0",
+    "morgan": "^1.9.1"
   }
 }

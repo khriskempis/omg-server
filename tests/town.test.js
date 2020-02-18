@@ -1,19 +1,18 @@
-const Town = require('./town');
-const cardIndex = require('../cardIndex');
-const CardHashMap = require('../hashMap');
+const Town = require("../GameObjects/town");
+const cardIndex = require("../cardIndex");
+const CardHashMap = require("../GameObjects/hashMap");
 
-describe('Town Object', ()=> {
-
-  const cardHashMap = new CardHashMap()
+describe("Town Object", () => {
+  const cardHashMap = new CardHashMap();
 
   const cardMap = cardIndex.forEach(card => {
     cardHashMap.set(card.id, card);
-  })
+  });
 
   const charburner = {
     id: "A",
     image: "image",
-    name: 'Charburner',
+    name: "Charburner",
     g_name: "Kohlerei",
     required_resource: {
       s: 2,
@@ -28,15 +27,15 @@ describe('Town Object', ()=> {
       assitant: false
     },
     produce: 0
-  }
+  };
 
-  let mockTown 
+  let mockTown;
 
-  beforeEach(()=> {
+  beforeEach(() => {
     mockTown = new Town(cardMap, charburner);
-  })
+  });
 
-  describe('town instance', ()=> {
+  describe("town instance", () => {
     expect(mockTown.myBuildings()).toEqual([charburner]);
-  })
-})
+  });
+});
