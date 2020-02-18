@@ -1,9 +1,10 @@
 # OMG - Oh My Good's Card game
 
 This app is based on the Oh My Goods card game, which is a resource management card game where players compete to build various workshops and generate the most money.
+
 This repo is meant to store the server code for the OMG app.
 
-to test if it's working:
+### Getting Started
 
 after cloning the repo install dependencies
 
@@ -24,5 +25,10 @@ alternatively you can run the app with nodemon which is a library that restarts 
 ```sh
 $ npm run dev
 ```
+
+#### Navigating the Project
+
+The project is still a work in progress and needs updated tests.
+The `index.js` file is were I was testing how the different objects would communicate with each other and manipulate data as if an endpoint was calling them. The code is messy so beware.
 
 ### Happy Coding!
